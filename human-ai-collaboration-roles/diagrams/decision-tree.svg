@@ -28,11 +28,27 @@
 
   <!-- NO AI Outcome (left branch) -->
   <g id="no-ai-role" transform="translate(150, 75)">
-    <rect x="-40" y="-12" width="80" height="24" fill="#4caf50" stroke="#2e7d32" stroke-width="2"
+    <rect x="-60" y="-30" width="120" height="60" fill="#4caf50" stroke="#2e7d32" stroke-width="2"
       rx="4" filter="url(#shadow)" />
-    <text x="0" y="4" text-anchor="middle" font-family="Arial, sans-serif" font-size="11"
+    <text x="0" y="-14" text-anchor="middle" font-family="Arial, sans-serif" font-size="10"
       font-weight="bold" fill="white">
       No AI
+    </text>
+    <text x="0" y="-2" text-anchor="middle" font-family="Arial, sans-serif" font-size="7"
+      fill="white">
+      • First exposure to skill
+    </text>
+    <text x="0" y="6" text-anchor="middle" font-family="Arial, sans-serif" font-size="7"
+      fill="white">
+      • Practicing foundations
+    </text>
+    <text x="0" y="14" text-anchor="middle" font-family="Arial, sans-serif" font-size="7"
+      fill="white">
+      • Full transparency
+    </text>
+    <text x="0" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="7"
+      fill="white">
+      • Joy of doing
     </text>
   </g>
 
@@ -111,9 +127,9 @@
   <!-- Connection Lines -->
 
   <!-- Start to NO AI -->
-  <line x1="290" y1="37" x2="190" y2="63" stroke="#4caf50" stroke-width="2"
+  <line x1="290" y1="37" x2="210" y2="55" stroke="#4caf50" stroke-width="2"
     marker-end="url(#arrow)" />
-  <text x="235" y="48" font-family="Arial, sans-serif" font-size="8" font-weight="bold"
+  <text x="245" y="45" font-family="Arial, sans-serif" font-size="8" font-weight="bold"
     fill="#4caf50">NO</text>
 
   <!-- Start to Primary Goal -->
