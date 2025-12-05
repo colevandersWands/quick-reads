@@ -1,0 +1,546 @@
+/**
+ * Human+AI Collaboration Roles - Content-Specific Styles
+ * Template: pedagogy-quick-reads
+ */
+
+.draft-notice {
+  background: #ffecb3;
+  color: #e65100;
+  text-align: center;
+  padding: 8pt;
+  font-weight: bold;
+  font-size: 10pt;
+  border-bottom: 2pt solid #ff9800;
+}
+
+/* ============================================
+   PAGE PADDING OVERRIDES
+   ============================================ */
+
+/* Override template's default 20mm padding for ALL pages */
+.sheet.padding-20mm {
+  padding: 8mm; /* Uniform 8mm on all sides for maximum content space */
+}
+
+/* ============================================
+   TYPOGRAPHY & BRAND COLORS
+   ============================================ */
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: #1a237e;
+}
+
+h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 20pt;
+  font-weight: 700;
+  color: #00acc1;
+  margin-bottom: 4pt;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 16pt;
+  font-weight: 600;
+  color: #00acc1;
+  margin-top: 12pt;
+  margin-bottom: 12pt;
+  text-align: center;
+}
+
+h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 12pt;
+  font-weight: 600;
+  color: #1a237e;
+  margin-top: 8pt;
+  margin-bottom: 4pt;
+  text-align: center;
+}
+
+h4 {
+  font-family: "Poppins", sans-serif;
+  font-size: 10pt;
+  font-weight: 600;
+  color: #00838f;
+  margin: 0 0 6pt 0;
+}
+
+p {
+  margin-bottom: 4pt;
+  text-align: left;
+}
+
+/* ============================================
+   PAGE 1: INTRODUCTION & MODEL
+   ============================================ */
+
+/* Header */
+header {
+  margin-bottom: 0; /* Remove bottom margin */
+  margin-top: -10pt; /* Pull up more to save vertical space */
+}
+
+/* Intro Box - Important Context Callout */
+.intro-box {
+  background: #e1f5fe;
+  padding: 6pt; /* Further tightened for space */
+  border-left: 3pt solid #00acc1;
+  margin-bottom: 6pt; /* Reduced margin */
+  font-size: 8.5pt; /* Slightly smaller text */
+}
+
+.intro-box p {
+  margin-bottom: 4pt;
+}
+
+.intro-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Page Layout Grid - 4:3 Ratio (more space for sidebar) */
+.page-layout {
+  display: grid;
+  grid-template-columns: 4fr 3fr; /* Adjusted to give sidebar more room */
+  gap: 10pt; /* Tighter gap to save space */
+  margin-bottom: 2pt; /* Minimal space before decision tree */
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  gap: 8pt; /* Tightened spacing */
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* CRITICAL: Don't force vertical expansion */
+  gap: 10pt; /* Tighter gap */
+  align-self: stretch; /* Full height of grid */
+}
+
+/* Legacy support for old structure if needed */
+.main-content {
+  display: contents; /* Makes children participate in parent grid */
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12pt;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12pt;
+  align-self: stretch;
+}
+
+/* Quadrant Diagram Container */
+.quadrant-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.quadrant-container img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Decision Tree - Full Width */
+.tree-container {
+  width: 100%;
+  margin-top: 4pt; /* Minimal top margin */
+  margin-bottom: 0; /* Removed bottom margin */
+}
+
+.tree-container img {
+  width: 100%;
+  height: auto;
+}
+
+/* Sidebar - Key Concepts */
+.sidebar {
+  background: #f5f5f5;
+  padding: 8pt; /* Reduced padding */
+  padding-top: 10pt; /* Reduced top padding */
+  border-radius: 6pt;
+  flex-grow: 0; /* Don't grow - stay compact */
+  flex-shrink: 0; /* Don't shrink */
+}
+
+.sidebar h3 {
+  color: #00838f;
+  font-size: 11pt;
+  margin-bottom: 6pt;
+  margin-top: 0;
+  text-align: left;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 5pt; /* Reduced spacing */
+  padding-left: 14pt;
+  position: relative;
+  font-size: 8.5pt; /* Slightly smaller text */
+}
+
+.sidebar li:before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #00acc1;
+}
+
+.sidebar li strong {
+  color: #1a237e;
+}
+
+/* Learning Progression - Vertical */
+.learning-progression {
+  background: #f0f4f8;
+  border: 1pt solid #00acc1;
+  border-radius: 6pt;
+  padding: 8pt;
+  margin: 0;
+  width: 100%;
+  max-width: 60%; /* Force smaller rendering */
+  align-self: center; /* Center in column */
+  flex-shrink: 0;
+  margin-top: auto; /* Push to bottom to align with quadrant */
+}
+
+.learning-progression h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 9pt;
+  color: #00838f;
+  margin: 0 0 6pt 0;
+}
+
+.learning-progression img {
+  width: 100%;
+  height: auto;
+  max-height: 120mm; /* CRITICAL: Constrain height to prevent overflow */
+}
+
+/* ============================================
+   PAGE 2: PRACTICAL APPLICATION
+   ============================================ */
+
+/* Row Layout System */
+.page-2-row {
+  margin-bottom: 16pt;
+}
+
+.page-2-row.row-2-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16pt;
+}
+
+.page-2-row.full-width {
+  display: block;
+}
+
+/* Content Box Base */
+.content-box {
+  border-radius: 6pt;
+  padding: 10pt;
+}
+
+.content-box h3 {
+  font-size: 11pt;
+  margin: 0 0 8pt 0;
+  font-weight: 600;
+}
+
+.content-box p {
+  font-size: 9pt;
+  margin: 4pt 0;
+  line-height: 1.4;
+}
+
+.content-box .example {
+  display: block;
+  font-size: 8pt;
+  color: #546e7a;
+  font-style: italic;
+  margin-left: 12pt;
+  margin-top: 2pt;
+}
+
+/* Application Modes - Diagnostic vs Prescriptive */
+.application-modes {
+  background: #f5f5f5;
+  padding: 10pt;
+  border-radius: 6pt;
+}
+
+.application-modes h3 {
+  color: #00838f;
+  margin-bottom: 10pt;
+  text-align: center;
+}
+
+.modes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20pt;
+}
+
+.mode-column {
+  padding: 0 10pt;
+}
+
+.mode-column:first-child {
+  border-right: 1pt solid #e0e0e0;
+}
+
+.mode-column h4 {
+  color: #00838f;
+  font-size: 10pt;
+  font-weight: 600;
+  margin: 0 0 6pt 0;
+}
+
+.mode-column p {
+  font-size: 9pt;
+  margin: 4pt 0;
+}
+
+.mode-column .example {
+  font-size: 8pt;
+  color: #546e7a;
+  font-style: italic;
+  margin: 6pt 0;
+  margin-left: 0;
+}
+
+/* SOLO Taxonomy Section */
+.solo-taxonomy-section {
+  background: white;
+  border: 1pt solid #e0e0e0;
+  border-radius: 6pt;
+  padding: 10pt;
+}
+
+.solo-taxonomy-section h3 {
+  color: #00838f;
+  margin: 0 0 8pt 0;
+}
+
+.solo-visual-container {
+  margin: 8pt 0;
+}
+
+.solo-visual-container img {
+  width: 100%;
+  height: auto;
+  max-width: 650px;
+  margin: 0 auto;
+  display: block;
+}
+
+.solo-explanation {
+  margin-top: 10pt;
+}
+
+.solo-explanation p {
+  font-size: 9pt;
+  line-height: 1.3;
+  margin: 4pt 0;
+  text-align: center;
+}
+
+.solo-explanation .integration-threshold {
+  text-align: center;
+  margin-bottom: 8pt;
+}
+
+.solo-points {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12pt;
+  margin: 8pt 0;
+}
+
+.point-group {
+  padding: 6pt;
+  background: #fafafa;
+  border-left: 2pt solid #00acc1;
+  border-radius: 2pt;
+}
+
+.point-group p {
+  font-size: 8pt;
+  margin: 0;
+  text-align: left;
+}
+
+.point-group strong {
+  color: #1a237e;
+}
+
+/* References Section */
+.references {
+  border-top: 2pt solid #00acc1;
+  padding-top: 12pt;
+  margin-top: 12pt;
+}
+
+.references h3 {
+  font-size: 11pt;
+  color: #00acc1;
+  margin: 0 0 8pt 0;
+  font-weight: 600;
+  text-align: left;
+}
+
+.references p {
+  font-size: 8pt;
+  margin: 4pt 0;
+  line-height: 1.3;
+}
+
+.references p strong {
+  color: #00838f;
+}
+
+/* ============================================
+   PRINT OPTIMIZATIONS
+   ============================================ */
+
+@media print {
+  /* Uniform padding for print on ALL pages */
+  .sheet.padding-20mm {
+    padding: 8mm; /* Match screen padding for consistency */
+  }
+
+  body {
+    color: #1a237e;
+  }
+
+  header {
+    margin-bottom: 0; /* Match screen version */
+    margin-top: -10pt; /* Match screen version */
+  }
+
+  h1 {
+    margin-bottom: 2pt;
+  }
+
+  .intro-box {
+    padding: 6pt;
+    margin-bottom: 6pt;
+    font-size: 8.5pt; /* Match screen version */
+  }
+
+  .page-layout {
+    gap: 8pt; /* Even tighter for print */
+    margin-bottom: 2pt; /* Match screen version */
+    grid-template-columns: 4fr 3fr; /* Match screen ratio for consistency */
+  }
+
+  .left-side {
+    gap: 6pt; /* Tighten for print */
+  }
+
+  .sidebar {
+    padding: 8pt;
+  }
+
+  .learning-progression {
+    padding: 6pt;
+  }
+
+  .tree-container {
+    margin-top: 4pt; /* Match screen version */
+    margin-bottom: 0;
+  }
+
+  .page-2-row {
+    margin-bottom: 12pt;
+  }
+
+  .modes-grid {
+    gap: 16pt;
+  }
+
+  .solo-points {
+    gap: 10pt;
+  }
+
+  .references {
+    padding-top: 8pt;
+    margin-top: 8pt;
+  }
+
+  /* Ensure page breaks work correctly */
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  p,
+  li {
+    orphans: 3;
+    widows: 3;
+  }
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media screen and (max-width: 900px) {
+  .page-layout {
+    grid-template-columns: 1fr;
+    gap: 12pt;
+  }
+
+  .left-side {
+    order: 1;
+  }
+
+  .right-side {
+    order: 2;
+    margin-top: 12pt;
+  }
+
+  .sidebar {
+    margin-top: 0;
+  }
+
+  .modes-grid,
+  .solo-points {
+    grid-template-columns: 1fr;
+  }
+
+  .mode-column:first-child {
+    border-right: none;
+    border-bottom: 1pt solid #e0e0e0;
+    padding-bottom: 10pt;
+  }
+
+  .point-group:first-child {
+    margin-bottom: 8pt;
+  }
+}

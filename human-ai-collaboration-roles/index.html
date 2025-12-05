@@ -4,909 +4,184 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Human+AI Collaboration Roles</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
 
-      body {
-        font-family: "Open Sans", sans-serif;
-        font-size: 10pt;
-        line-height: 1.5;
-        color: #1a237e;
-      }
-
-      .page {
-        width: 100%;
-        max-width: 8.5in;
-        padding: 0.2in 0.5in; /* Reduced top/bottom */
-        margin: 0 auto;
-        background: white;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-      }
-
-      /* Only add page break before the second page */
-      .page-2 {
-        page-break-before: always;
-      }
-
-      @media print {
-      }
-
-      h1 {
-        font-family: "Poppins", sans-serif;
-        font-size: 20pt;
-        font-weight: 700;
-        color: #00acc1;
-        margin-bottom: 4pt;
-      }
-
-      h2 {
-        font-family: "Poppins", sans-serif;
-        font-size: 16pt;
-        font-weight: 600;
-        color: #00acc1;
-        margin-top: 12pt;
-        margin-bottom: 12pt;
-        text-align: center;
-      }
-
-      h3 {
-        font-family: "Poppins", sans-serif;
-        font-size: 12pt;
-        font-weight: 600;
-        color: #1a237e;
-        margin-top: 8pt;
-        margin-bottom: 4pt;
-        text-align: center;
-      }
-
-      .subtitle {
-        font-size: 14pt;
-        color: #546e7a;
-        margin-bottom: 12pt;
-      }
-
-      .intro-box {
-        background: #e1f5fe;
-        padding: 10pt;
-        border-left: 3pt solid #00acc1;
-        margin-bottom: 12pt;
-        font-size: 9pt;
-      }
-
-      .intro-box p {
-        margin-bottom: 4pt;
-      }
-
-      .main-content {
-        display: grid;
-        grid-template-columns: 5fr 2fr;
-        gap: 20pt;
-        margin-bottom: 12pt;
-      }
-
-      .left-column {
-        display: flex;
-        flex-direction: column;
-        gap: 12pt;
-      }
-
-      .right-column {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 12pt;
-        align-self: stretch;
-      }
-
-      .quadrant-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .quadrant-container img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        /* No max-height constraint, let it size naturally */
-      }
-
-      .quadrant-container h3,
-      .tree-container h3 {
-        width: 100%;
-        text-align: center;
-        font-size: 9pt;
-        color: #00838f;
-        margin: 0 0 6pt 0;
-      }
-
-      .tree-container {
-        width: 100%;
-        margin-top: 12pt;
-        margin-bottom: 12pt;
-      }
-
-      .tree-container img {
-        width: 100%;
-        height: auto;
-      }
-
-      /* Sidebar for key concepts */
-      .sidebar {
-        background: #f5f5f5;
-        padding: 10pt;
-        padding-top: 12pt;
-        border-radius: 6pt;
-        flex-grow: 1;
-      }
-
-      .sidebar h3 {
-        color: #00838f;
-        font-size: 11pt;
-        margin-bottom: 6pt;
-        margin-top: 0;
-      }
-
-      .sidebar ul {
-        list-style: none;
-        padding-left: 0;
-      }
-
-      .sidebar li {
-        margin-bottom: 6pt;
-        padding-left: 14pt;
-        position: relative;
-        font-size: 9pt;
-      }
-
-      .sidebar li:before {
-        content: "▸";
-        position: absolute;
-        left: 0;
-        color: #00acc1;
-      }
-
-      .motto {
-        margin-top: 10pt;
-        padding-top: 8pt;
-        border-top: 1pt solid #ccc;
-        font-style: italic;
-        color: #00838f;
-        font-size: 9pt;
-        text-align: center;
-      }
-
-      /* Learning Progression - Vertical */
-      .learning-progression {
-        background: #f0f4f8;
-        border: 1pt solid #00acc1;
-        border-radius: 6pt;
-        padding: 8pt;
-        margin: 0;
-        width: 100%;
-        flex-shrink: 0;
-      }
-
-      .learning-progression h3 {
-        width: 100%;
-        text-align: center;
-        font-size: 9pt;
-        color: #00838f;
-        margin: 0 0 6pt 0;
-      }
-
-      .progression-container {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 4pt;
-      }
-
-      .approach-step {
-        background: white;
-        border: 1pt solid #b0bec5;
-        border-radius: 4pt;
-        padding: 6pt 8pt;
-        text-align: center;
-        width: 100%;
-      }
-
-      .approach-step.no-ai {
-        background: #e8f5e9;
-        border-color: #4caf50;
-      }
-
-      .approach-step.human-exploring {
-        background: #e0f7fa;
-        border-color: #00acc1;
-      }
-
-      .approach-step.human-applying {
-        background: #f3e5f5;
-        border-color: #7b1fa2;
-      }
-
-      .approach-step.ai-exploring {
-        background: #e0f2f1;
-        border-color: #00897b;
-      }
-
-      .approach-step.ai-applying {
-        background: #fff3e0;
-        border-color: #e65100;
-      }
-
-      .approach-name {
-        font-weight: 600;
-        font-size: 9pt;
-        color: #1a237e;
-        display: block;
-      }
-
-      .approach-desc {
-        font-size: 7pt;
-        color: #546e7a;
-        display: block;
-        margin-top: 1pt;
-      }
-
-      .progression-arrow {
-        color: #00acc1;
-        font-size: 14pt;
-        font-weight: bold;
-        text-align: center;
-        margin: 2pt 0;
-      }
-
-      /* Nested progression elements */
-      .nested-progression {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 4pt;
-        margin-top: 4pt;
-        font-size: 8pt;
-      }
-
-      .approach-sub {
-        background: rgba(255, 255, 255, 0.5);
-        padding: 2pt 4pt;
-        border-radius: 2pt;
-        font-size: 7pt;
-        color: #37474f;
-      }
-
-      .approach-arrow-small {
-        color: #546e7a;
-        font-size: 8pt;
-      }
-
-      .axes-section {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12pt;
-        margin-top: auto;
-      }
-
-      .axis-box {
-        background: #fff;
-        border: 1pt solid #e0e0e0;
-        padding: 8pt;
-        border-radius: 4pt;
-      }
-
-      .axis-box h4 {
-        color: #00838f;
-        font-size: 10pt;
-        margin-bottom: 4pt;
-        margin-top: 0;
-      }
-
-      .axis-box p {
-        font-size: 9pt;
-        margin-bottom: 3pt;
-      }
-
-      .example {
-        font-style: italic;
-        color: #546e7a;
-        font-size: 8pt;
-      }
-
-      .what-how-box {
-        background: #fff8e1;
-        border: 2pt solid #ffc107;
-        padding: 10pt;
-        border-radius: 6pt;
-        margin-bottom: 12pt;
-      }
-
-      .what-how-box h3 {
-        color: #f57c00;
-        font-size: 11pt;
-        margin-bottom: 6pt;
-        margin-top: 0;
-      }
-
-      .what-how-box p {
-        font-size: 9pt;
-        margin-bottom: 4pt;
-      }
-
-      @media print {
-        body {
-          margin: 0;
-          padding: 0;
-          background: white;
-        }
-
-        .page {
-          margin: 0;
-          box-shadow: none;
-        }
-
-        /* Hide draft notice bar during printing */
-        .draft-notice {
-          display: none !important;
-        }
-
-        .actions-bar {
-          display: none !important;
-          height: 0 !important;
-          margin: 0 !important;
-          padding: 0 !important;
-        }
-
-        /* Optimize content spacing for print - reduce vertical gaps */
-        h1 {
-          margin-bottom: 2pt; /* Reduced from 4pt */
-        }
-
-        .subtitle {
-          margin-bottom: 6pt; /* Reduced from 12pt */
-        }
-
-        .intro-box {
-          padding: 6pt;
-          margin-bottom: 6pt; /* Reduced from 12pt */
-        }
-
-        .main-content {
-          gap: 14pt; /* Reduced from 20pt */
-          margin-bottom: 6pt; /* Reduced from 12pt */
-        }
-
-        .left-column {
-          gap: 6pt; /* Reduced from 12pt */
-        }
-
-        .right-column {
-          gap: 6pt; /* Reduced from 12pt */
-        }
-
-        .tree-container {
-          margin-top: 6pt; /* Reduced from 12pt */
-          margin-bottom: 6pt; /* Reduced from 12pt */
-        }
-
-        .learning-progression {
-          margin: 0; /* Remove all margins */
-        }
-
-        h2 {
-          margin-top: 6pt; /* Reduced from 10pt */
-          margin-bottom: 6pt; /* Reduced from 10pt */
-        }
-      }
-
-      /* Responsive adjustments for web viewing */
-      @media screen and (max-width: 900px) {
-        .page {
-          width: 100%;
-          height: auto;
-          min-height: auto;
-          padding: 20px;
-          margin-bottom: 40px;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-          font-size: 18pt;
-        }
-
-        h2 {
-          font-size: 14pt;
-        }
-
-        .subtitle {
-          font-size: 12pt;
-        }
-
-        .main-content {
-          grid-template-columns: 1fr;
-          gap: 12pt;
-        }
-
-        .sidebar {
-          order: 2;
-          margin-top: 12pt;
-        }
-
-        .left-column {
-          order: 1;
-        }
-
-        .axes-section {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* Web-specific enhancements */
-      @media screen {
-        body {
-          background: #f0f0f0;
-          padding: 20px 0;
-        }
-
-        .page {
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-          border-radius: 8px;
-          margin-bottom: 40px;
-        }
-
-        /* Download/Print button */
-        .actions-bar {
-          width: 100%;
-          max-width: 8.5in;
-          padding: 0 0.5in;
-          margin: 0 auto 20px;
-          text-align: right;
-          box-sizing: border-box;
-        }
-
-        @media screen and (max-width: 900px) {
-          .actions-bar {
-            padding: 0 20px;
-          }
-        }
-
-        @media screen and (max-width: 600px) {
-          .actions-bar {
-            padding: 0 15px;
-          }
-        }
-
-        .btn-download {
-          background: #00acc1;
-          color: white;
-          padding: 12px 24px;
-          border: none;
-          border-radius: 4px;
-          font-family: "Poppins", sans-serif;
-          font-weight: 600;
-          cursor: pointer;
-          transition: background 0.2s;
-        }
-
-        .btn-download:hover {
-          background: #00838f;
-        }
-      }
-
-      /* Draft notice */
-      .draft-notice {
-        background: #ffecb3;
-        color: #e65100;
-        text-align: center;
-        padding: 8pt;
-        font-weight: bold;
-        font-size: 10pt;
-        border-bottom: 2pt solid #ff9800;
-      }
-
-      /* Page 2 New Grid Layout */
-      .page-2-row {
-        margin-bottom: 16pt;
-      }
-
-      .page-2-row.row-2-col {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16pt;
-      }
-
-      .page-2-row.full-width {
-        display: block;
-      }
-
-      /* Content Box Base Styles */
-      .content-box {
-        border-radius: 6pt;
-        padding: 10pt;
-      }
-
-      .content-box h3 {
-        font-size: 11pt;
-        margin: 0 0 8pt 0;
-        font-weight: 600;
-      }
-
-      .content-box p {
-        font-size: 9pt;
-        margin: 4pt 0;
-        line-height: 1.4;
-      }
-
-      .content-box .example {
-        display: block;
-        font-size: 8pt;
-        color: #546e7a;
-        font-style: italic;
-        margin-left: 12pt;
-        margin-top: 2pt;
-      }
-
-      /* Diagnostic/Prescriptive Box (Tip Box style) */
-      .application-modes {
-        background: #f5f5f5;
-        padding: 10pt;
-        border-radius: 6pt;
-      }
-
-      .application-modes h3 {
-        color: #00838f;
-        margin-bottom: 10pt;
-        text-align: center;
-      }
-
-      /* Horizontal layout for Application Modes */
-      .modes-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20pt;
-      }
-
-      .mode-column {
-        padding: 0 10pt;
-      }
-
-      .mode-column:first-child {
-        border-right: 1pt solid #e0e0e0;
-      }
-
-      .mode-column h4 {
-        color: #00838f;
-        font-size: 10pt;
-        font-weight: 600;
-        margin: 0 0 6pt 0;
-      }
-
-      .mode-column p {
-        font-size: 9pt;
-        margin: 4pt 0;
-      }
-
-      .mode-column .example {
-        font-size: 8pt;
-        color: #546e7a;
-        font-style: italic;
-        margin: 6pt 0;
-      }
-
-      /* SOLO Taxonomy Section */
-      .solo-taxonomy-section {
-        background: white;
-        border: 1pt solid #e0e0e0;
-        border-radius: 6pt;
-        padding: 10pt;
-      }
-
-      .solo-taxonomy-section h3 {
-        color: #00838f;
-        margin: 0 0 8pt 0;
-      }
-
-      .solo-grid {
-        display: grid;
-        grid-template-columns: 2fr 3fr;
-        gap: 12pt;
-        align-items: flex-start;
-      }
-
-      .solo-image {
-        width: 100%;
-        height: auto;
-      }
-
-      .solo-text p {
-        font-size: 9pt;
-        margin: 4pt 0;
-        line-height: 1.4;
-      }
-
-      .solo-text p strong {
-        color: #00838f;
-      }
-
-      .solo-text ul {
-        margin: 6pt 0 6pt 12pt;
-        font-size: 8pt;
-        color: #546e7a;
-      }
-
-      .solo-text li {
-        margin: 2pt 0;
-      }
-
-      /* Updated SOLO Section for integrated visual */
-      .solo-visual-container {
-        margin: 8pt 0;
-      }
-
-      .solo-explanation {
-        margin-top: 10pt;
-      }
-
-      .solo-explanation p {
-        font-size: 9pt;
-        line-height: 1.3;
-        margin: 4pt 0;
-      }
-
-      .solo-points {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12pt;
-        margin: 8pt 0;
-      }
-
-      .point-group {
-        padding: 6pt;
-        background: #fafafa;
-        border-left: 2pt solid #00acc1;
-        border-radius: 2pt;
-      }
-
-      .point-group p {
-        font-size: 8pt;
-        margin: 0;
-      }
-
-      /* References Section */
-      .references {
-        border-top: 2pt solid #00acc1;
-        padding-top: 12pt;
-        margin-top: 12pt;
-      }
-
-      .references h3 {
-        font-size: 11pt;
-        color: #00acc1;
-        margin: 0 0 8pt 0;
-        font-weight: 600;
-      }
-
-      .references p {
-        font-size: 8pt;
-        margin: 4pt 0;
-        line-height: 1.3;
-      }
-
-      .references p strong {
-        color: #00838f;
-      }
-    </style>
+    <link rel="stylesheet" href="../public/index.css" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="draft-notice">DRAFT VERSION</div>
+    <a id="gh-corner" class="github-corner" aria-label="View source on GitHub">
+      <img src="../public/gh-corner.svg" alt="github corner link icon" />
+    </a>
 
-    <!-- Optional action bar for web version 
-        >>> commented until printing works better -->
-    <div class="actions-bar">
-      <button
-        class="btn-download"
-        onclick="document.body.offsetHeight; setTimeout(() => window.print(), 10);"
-      >
-        Download as PDF
-      </button>
-    </div>
+    <!-- Print button will be injected here by index.mjs -->
 
-    <!-- PAGE 1: INTRODUCING THE MODEL & CONCEPTS -->
-    <div class="page">
-      <div class="main-content">
-        <!-- Left Column: Main content -->
-        <div class="left-column">
-          <header>
-            <h1>Human+AI Collaboration Roles</h1>
-          </header>
+    <div class="printable letter">
+      <section id="page-1" class="sheet padding-20mm" aria-label="Page 1">
+        <div class="draft-notice">DRAFT</div>
+        <!-- Wrapper for two-column layout -->
+        <div class="page-layout">
+          <!-- LEFT SIDE: Header + Intro + Diagram -->
+          <div class="left-side">
+            <header>
+              <h1>Human+AI Collaboration Roles</h1>
+            </header>
 
-          <div class="intro-box">
-            <p>
-              <strong>A thinking tool, not rules:</strong> This framework helps
-              you decide how to collaborate with AI based on your learning goals
-              and level of domain competence. You maintain control over goals
-              and decisions. The framework makes suggestions, but you choose
-              based on your context, constraints, and values.
-            </p>
-            <p>
-              <strong>Prerequisites:</strong> This model assumes ethical, legal,
-              environmental, cheating etc. concerns have been considered and
-              appropriate tools selected.
-            </p>
-          </div>
-
-          <div class="quadrant-container">
-            <!-- <h3>2D Collaboration Roles</h3> -->
-            <img
-              src="./diagrams/quadrant-draft.svg"
-              alt="Human-AI Collaboration Framework showing four approaches based on Exploring/Focusing and Human-Led/AI-Led axes"
-            />
-          </div>
-        </div>
-
-        <!-- Right Column: Sidebar and Learning Progression -->
-        <div class="right-column">
-          <div class="sidebar">
-            <h3>Key Concepts</h3>
-            <ul>
-              <!-- <li>
-                <strong>Learning First:</strong> Educational goals drive the
-                collaboration strategy.
-              </li> -->
-              <li>
-                <strong>Cognitive Delegation:</strong> Intentionally dividing
-                intellectual tasks between human and AI based on learning goals.
-              </li>
-              <!-- move this to page 2 -->
-              <!-- <li>
-                <strong>Perspective-Taking:</strong> Understanding what AI "knows"
-                and how it "thinks" to collaborate effectively.
-              </li> -->
-              <li>
-                <strong>Dynamic Roles:</strong> Fluidly switch roles throughout
-                a project as needed, even within a single task!.
-              </li>
-            </ul>
-          </div>
-
-          <!-- Learning Progression - Now Vertical -->
-          <div class="learning-progression">
-            <h3>Suggested Progression</h3>
-            <img
-              src="./diagrams/learning-progression.svg"
-              alt="Suggested Learning Progression from No AI through Human-Led to AI-Led approaches"
-              style="width: 100%; height: auto"
-            />
-          </div>
-        </div>
-      </div>
-
-      <!-- Decision Tree - Full Width -->
-      <div class="tree-container">
-        <!-- <h3>Role Decision Tree</h3> -->
-        <img
-          src="./diagrams/decision-tree.svg"
-          alt="Decision tree for selecting collaboration approach"
-        />
-      </div>
-    </div>
-
-    <!-- PAGE 2: PRACTICAL APPLICATION -->
-    <div class="page page-2">
-      <!-- Row 1: Application Modes (Full Width) -->
-      <div class="page-2-row full-width">
-        <div class="content-box application-modes">
-          <h3>Collaboration Roles: Two Modes</h3>
-          <div class="modes-grid">
-            <div class="mode-column">
-              <h4>Diagnostic (Reflecting)</h4>
+            <div class="intro-box">
               <p>
-                "Which approach am I currently using? Does it align with my
-                learning goals?"
+                <strong>A thinking tool, not rules:</strong> This framework
+                helps you decide how to collaborate with AI based on your
+                learning goals and level of domain competence. You maintain
+                control over goals and decisions. The framework makes
+                suggestions, but you choose based on your context, constraints,
+                and values.
               </p>
-              <p class="example">
-                Example: Teacher realizes they're always letting AI lead—missing
-                opportunities for deeper student thinking.
+              <p>
+                <strong>Prerequisites:</strong> This model assumes ethical,
+                legal, equity, environmental, cheating etc. concerns have been
+                considered and appropriate tools selected.
               </p>
             </div>
-            <div class="mode-column">
-              <h4>Prescriptive (Planning)</h4>
-              <p>
-                "Given my objectives and constraints, which approach should I
-                adopt?"
-              </p>
-              <p class="example">
-                Example: For creative writing unit, start with Human-Led
-                Exploration, then shift to Human-Led Application.
-              </p>
+
+            <div class="quadrant-container">
+              <img
+                src="./diagrams/quadrant-draft.svg"
+                alt="Human-AI Collaboration Framework showing four approaches based on Exploring/Focusing and Human-Led/AI-Led axes"
+              />
+            </div>
+          </div>
+
+          <!-- RIGHT SIDE: Sidebar + Learning Progression -->
+          <div class="right-side">
+            <div class="sidebar">
+              <h3>Key Concepts</h3>
+              <ul>
+                <li>
+                  <strong>Task Support:</strong> This model addresses using AI
+                  to accomplished specified tasks, not it's use as a study
+                  assistant.
+                </li>
+                <li>
+                  <strong>Cognitive Delegation:</strong> Intentionally sharing
+                  the intellectual load to support learning goals.
+                </li>
+                <li>
+                  <strong>Dynamic Roles:</strong> Fluidly switch roles as
+                  needed, even within a single task!
+                </li>
+              </ul>
+            </div>
+
+            <div class="learning-progression">
+              <h3>Suggested Progression</h3>
+              <img
+                src="./diagrams/learning-progression.svg"
+                alt="Suggested Learning Progression from No AI through Human-Led to AI-Led approaches"
+              />
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Row 2: SOLO Taxonomy -->
-      <div class="page-2-row full-width">
-        <div class="content-box solo-taxonomy-section">
-          <h3>SOLO Taxonomy & Collaboration Readiness</h3>
+        <!-- Decision Tree - Full Width Below Grid -->
+        <div class="tree-container">
+          <img
+            src="./diagrams/decision-tree.svg"
+            alt="Decision tree for selecting collaboration approach"
+          />
+        </div>
+      </section>
 
-          <!-- Integrated Visual -->
-          <div class="solo-visual-container">
-            <img
-              src="./diagrams/solo-integration.svg"
-              alt="SOLO stages mapped to collaboration approaches"
-              style="
-                width: 100%;
-                height: auto;
-                max-width: 650px;
-                margin: 0 auto;
-                display: block;
-              "
-            />
-          </div>
-
-          <!-- Explanatory Text Below -->
-          <div class="solo-explanation">
-            <p style="text-align: center; margin-bottom: 8pt">
-              <strong>The Integration Threshold:</strong> Critical transition
-              where concepts connect and AI outputs become evaluable
-            </p>
-
-            <div class="solo-points">
-              <div class="point-group">
+      <section id="page-2" class="sheet padding-20mm" aria-label="Page 2">
+        <!-- Row 1: Application Modes -->
+        <div class="page-2-row full-width">
+          <div class="content-box application-modes">
+            <h3>Collaboration Roles: Two Modes</h3>
+            <div class="modes-grid">
+              <div class="mode-column">
+                <h4>Diagnostic (Reflecting)</h4>
                 <p>
-                  <strong>Before the Threshold:</strong> Students need human-led
-                  guidance to build understanding structure. AI can't help if
-                  they don't know what to verify.
+                  "Which approach am I currently using? Does it align with my
+                  learning goals?"
+                </p>
+                <p class="example">
+                  Example: Teacher realizes they're always letting AI
+                  lead—missing opportunities for deeper student thinking.
                 </p>
               </div>
-
-              <div class="point-group">
+              <div class="mode-column">
+                <h4>Prescriptive (Planning)</h4>
                 <p>
-                  <strong>After the Threshold:</strong> All quadrants
-                  viable—choose based on learning goals rather than limitations.
-                  Students can leverage AI to extend understanding.
+                  "Given my objectives and constraints, which approach should I
+                  adopt?"
+                </p>
+                <p class="example">
+                  Example: For creative writing unit, start with Human-Led
+                  Exploration, then shift to Human-Led Application.
                 </p>
               </div>
             </div>
-
-            <!-- <p
-              style="
-                font-size: 8pt;
-                color: #2e7d32;
-                font-style: italic;
-                margin-top: 8pt;
-                text-align: center;
-              "
-            >
-              This works two ways: Progress through quadrants as understanding
-              deepens, OR scaffold within any quadrant using SOLO progression.
-            </p> -->
           </div>
         </div>
-      </div>
 
-      <!-- Row 3: References -->
-      <div class="page-2-row full-width">
-        <div class="references">
-          <h3>References & Further Reading</h3>
-          <p><strong>Lorum Ipsum:</strong> blahdy blah. coming soon</p>
-          <p><strong>Lorum Ipsum:</strong> blahdy blah. coming soon</p>
-          <p><strong>Lorum Ipsum:</strong> blahdy blah. coming soon</p>
-          <p><strong>Lorum Ipsum:</strong> blahdy blah. coming soon</p>
-          <p><strong>Lorum Ipsum:</strong> blahdy blah. coming soon</p>
+        <!-- Row 2: SOLO Taxonomy Section -->
+        <div class="page-2-row full-width">
+          <div class="content-box solo-taxonomy-section">
+            <h3>SOLO Taxonomy & Collaboration Readiness</h3>
+
+            <!-- Integrated Visual -->
+            <div class="solo-visual-container">
+              <img
+                src="./diagrams/solo-integration.svg"
+                alt="SOLO stages mapped to collaboration approaches"
+              />
+            </div>
+
+            <!-- Explanatory Text Below -->
+            <div class="solo-explanation">
+              <p class="integration-threshold">
+                <strong>The Integration Threshold:</strong> Critical transition
+                where concepts connect and AI outputs become evaluable
+              </p>
+
+              <div class="solo-points">
+                <div class="point-group">
+                  <p>
+                    <strong>Before the Threshold:</strong> Students need
+                    human-led guidance to build understanding structure. AI
+                    can't help if they don't know what to verify.
+                  </p>
+                </div>
+
+                <div class="point-group">
+                  <p>
+                    <strong>After the Threshold:</strong> All quadrants
+                    viable—choose based on learning goals rather than
+                    limitations. Students can leverage AI to extend
+                    understanding.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+
+        <!-- Row 3: References -->
+        <div class="page-2-row full-width">
+          <div class="references">
+            <h3>References & Further Reading</h3>
+            <ol>
+              <li>
+                Biggs, J. B. & Collis, K. F. Evaluating the quality of learning:
+                The SOLO taxonomy (Structure of the Observed Learning Outcome).
+                New York, Academic Press, 1982.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
     </div>
+
+    <!-- Optional: Add non-printable context/notes here -->
+
+    <script src="../public/index.mjs" type="module"></script>
   </body>
 </html>
